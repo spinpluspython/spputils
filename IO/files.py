@@ -4,15 +4,17 @@
 @author: Steinn Ymir Agustsson
 """
 import os
-from tkinter import Tk, filedialog
 import pickle
 from datetime import datetime
+from tkinter import Tk, filedialog
+
 
 def main():
     pass
 
+
 def choose_folder(initialdir='E://'):
-    '''dialog box for folder selection
+    ''' dialog box for folder selection
         info at https://tkinter.unpythonic.net/wiki/tkFileDialog
     '''
     root = Tk()
@@ -77,7 +79,6 @@ def load_obj(name):
 
     with open('obj/' + name + '.pkl', 'rb') as f:
         return pickle.load(f)
-
 
 
 if __name__ == '__main__':

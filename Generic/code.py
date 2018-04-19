@@ -10,6 +10,14 @@ def main():
 
 
 def sym(letter):
+    """ Get the ASCII character for a greek letter
+
+    Parameters:
+        letter (str): greek letter spelled out (case sensitive, returns
+        upper/lower case greek letter).
+    Returns:
+         greek_letter (str): unicode string for the given greek letter.
+    """
     greek_alphabet = {u'\u0391': 'Alpha',
                       u'\u0392': 'Beta',
                       u'\u0393': 'Gamma',
@@ -65,11 +73,8 @@ def sym(letter):
             return (inv_map[key])
 
 
-# %% naming
-
-
 class class_attributes_string(object):
-    """ gets names of variables from whithin a class"""
+    """ Gets names of variables from within a class. """
 
     def __init__(self, *values):
         for v in values:
