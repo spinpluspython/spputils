@@ -1,0 +1,7 @@
+
+\.spyproject/
+
+\.idea/
+settings.ini
+*.pyc
+utils/__pycache__/
