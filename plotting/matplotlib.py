@@ -8,6 +8,23 @@ import matplotlib.pyplot as plt
 def main():
     pass
 
+def set_style(large_style=True):
+
+
+    plt.style.use('seaborn-white')
+
+    plt.rcParams['font.family'] = 'serif'
+    plt.rcParams['font.serif'] = 'Arial'
+    plt.rcParams['font.monospace'] = 'Arial'
+    plt.rcParams['font.size'] = 10
+    plt.rcParams['axes.labelsize'] = 20
+    plt.rcParams['axes.labelweight'] = 'bold'
+    plt.rcParams['axes.titlesize'] = 20
+    plt.rcParams['xtick.labelsize'] = 8
+    plt.rcParams['ytick.labelsize'] = 8
+    plt.rcParams['legend.fontsize'] = 10
+    plt.rcParams['figure.titlesize'] = 12
+
 def plot_lines(data,  normalization='None', range=None, color_range=(0,1),
                x_label='',y_label='', xlim=None, ylim=None,
                savefig=False, save_dir='E:/data/FLASH/', save_name='fig', static_curve=None):
