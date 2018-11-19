@@ -21,6 +21,7 @@ def monotonically_increasing(l):
     """
     return all(x < y for x, y in zip(l, l[1:]))
 
+
 def monotonically_decreasing(l):
     """ make a list of values monotonically decreasing.
 
