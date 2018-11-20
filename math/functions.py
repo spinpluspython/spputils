@@ -10,17 +10,20 @@ def main():
     pass
 
 
-def gaussian(x, A, mu, sig):
+def gaussian(x, mu, sig):
     """ one dimensional gaussian function.
     Parameters:
         x (1d array): coordinate axis
         mu (float):  mean or expectation of the distribution
         sig (float): standard deviation
     """
-    return A * np.exp(-np.power(x - mu, 2.) / (2 * np.power(sig, 2.)))
+    return np.exp(-np.power(x - mu, 2.) / (2 * np.power(sig, 2.)))
 
-def lorentzian_normalized(x,Gamma,x0):
-    """ Normalized lorentian model
+def gaussian_normalized(x, mu, sig):
+    return gaussian(x, mu, sig) / np.sqrt(2*np.pi * sig**2)
+
+def lorentzian_normalized(x,x0,Gamma):
+    """ Normalized lorentz model.
 
     :param x: 1D data array
     :param Gamma: float
@@ -31,7 +34,7 @@ def lorentzian_normalized(x,Gamma,x0):
         lorentzian model
     """
     num = .5 * Gamma
-    den = np.pi * (x-x0)**2 + (.5*Gamma)**2
+    den = np.pi**2 * (x-x0)**2 + (.5*Gamma)**2
     return num/den
 
 def lorentz(p,x):
@@ -52,7 +55,15 @@ def expFunc_lin_const(x, A, t0, c, d):
     labels = ['A', 't0', 'c', 'd']
     return A * (1 - np.exp(- x / t0)) + c * x + d
 
+def lorentz_real(x,s,w0,t):
+    num = s**2 * (w0**2 - x**2)
+    den = (w0**2 - x**2)**2 + x**2/t**-2
+    return num/den
 
+def lorentz_imag(x,s,w0,t):
+    num = (s)**2 * x / t
+    den = (w0**2 - x**2)**2 + x**2/t**-2
+    return num/den
 
 
 if __name__ == '__main__':
